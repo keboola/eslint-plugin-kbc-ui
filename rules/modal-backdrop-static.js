@@ -1,8 +1,10 @@
 module.exports = {
-  fixable: "code",
-  create: function(context) {
+  meta: {
+    fixable: "code"
+  },
+  create(context) {
     return {
-      JSXOpeningElement: function(node) {
+      JSXOpeningElement(node) {
         if (node.name.name !== "Modal") {
           return;
         }
@@ -22,14 +24,13 @@ module.exports = {
           context.report({
             node,
             message: 'Required "backdrop" props missing.',
-            fix: function(fixer) {
+            fix(fixer) {
               return fixer.insertTextAfter(node.name, ' backdrop="static" ');
             }
           });
         } else if (
           backdrop.value === null ||
-          (typeof backdrop.value.value !== "undefined" &&
-            backdrop.value.value !== "static") ||
+          (typeof backdrop.value.value !== "undefined" && backdrop.value.value !== "static") ||
           (typeof backdrop.value.expression !== "undefined" &&
             typeof backdrop.value.expression.value !== "undefined" &&
             backdrop.value.expression.value !== false)
