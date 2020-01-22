@@ -13,29 +13,30 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("modal-backdrop-static", rule, {
   valid: [
-    { code: '<Modal backdrop="static" />' },
-    { code: "<Modal backdrop={false} />" },
-    { code: "<Modal backdrop={getBackdrop()} />" }
+    { code: "<Modal />" }, // probably not react-bootstrap modal
+    { code: '<Modal backdrop="static"></Modal>' },
+    { code: "<Modal backdrop={false}></Modal>" },
+    { code: "<Modal backdrop={getBackdrop()}></Modal>" }
   ],
   invalid: [
     {
-      code: "<Modal />",
-      output: '<Modal backdrop="static"  />',
+      code: "<Modal ></Modal>",
+      output: '<Modal backdrop="static"  ></Modal>',
       errors: [{ message: 'Required "backdrop" props missing.' }]
     },
     {
-      code: "<Modal backdrop />",
-      output: '<Modal backdrop="static" />',
+      code: "<Modal backdrop ></Modal>",
+      output: '<Modal backdrop="static" ></Modal>',
       errors: [{ message: 'Backdrop prop has required value of "static" or "false"' }]
     },
     {
-      code: "<Modal backdrop={true} />",
-      output: '<Modal backdrop="static" />',
+      code: "<Modal backdrop={true} ></Modal>",
+      output: '<Modal backdrop="static" ></Modal>',
       errors: [{ message: 'Backdrop prop has required value of "static" or "false"' }]
     },
     {
-      code: "<Modal backdrop='random' />",
-      output: '<Modal backdrop="static" />',
+      code: "<Modal backdrop='random' ></Modal>",
+      output: '<Modal backdrop="static" ></Modal>',
       errors: [{ message: 'Backdrop prop has required value of "static" or "false"' }]
     }
   ]

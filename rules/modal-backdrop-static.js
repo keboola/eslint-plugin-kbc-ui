@@ -5,7 +5,7 @@ module.exports = {
   create(context) {
     return {
       JSXOpeningElement(node) {
-        if (node.name.name !== "Modal") {
+        if (node.selfClosing || node.name.name !== "Modal") {
           return;
         }
 

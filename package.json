@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-kbc-ui",
   "description": "Custom Eslint rules set for KBC-UI application",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/**/*.js"
