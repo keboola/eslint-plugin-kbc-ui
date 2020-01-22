@@ -3,7 +3,7 @@ const rule = require("../rules/modal-backdrop-static");
 
 const ruleTester = new RuleTester({
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 6,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true
