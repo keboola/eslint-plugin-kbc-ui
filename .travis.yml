@@ -1,5 +1,3 @@
-sudo: false
-
 language: node_js
 
 node_js: "12"
@@ -20,9 +18,10 @@ jobs:
     - stage: publish
       deploy:
         - provider: npm
+          edge: true
           email: $NPM_EMAIL
-          api_key: $NPM_API_KEY
-          skip_cleanup: true
+          api_token: $NPM_API_KEY
+          access: public
           on:
             tags: true
             repo: keboola/eslint-plugin-kbc-ui
