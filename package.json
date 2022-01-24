@@ -3,6 +3,9 @@
   "description": "Custom Eslint rules set for KBC-UI application",
   "version": "2.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "^14 || ^16"
+  },
   "scripts": {
     "test": "mocha tests/**/*.js"
   },
