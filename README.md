@@ -13,4 +13,4 @@ Ensure all react bootstrap modals have backdrop prop defined as "static" or "fal
 
 ## License
 
-MIT
+MIT licensed, see [LICENSE](./LICENSE) file.
